@@ -1376,12 +1376,12 @@ mod tests {
             .take(3)
             .map(|n| match n {
                 MenuNode::Item { label, shortcut, .. } => format!("{label}{}", shortcut.as_deref().map(|s| format!(" [{s}]")).unwrap_or_default()),
-                MenuNode::Submenu { label, .. } => format!("{label} ▸"),
+                MenuNode::Submenu { label, .. } => format!("{label} →"),
                 MenuNode::Separator => "---".into(),
             })
             .collect();
         assert_eq!(labels[0], "Import Photos… [Cmd+Shift+I]");
-        assert_eq!(labels[1..], ["Import from Folder…".to_string(), "Import from Device ▸".to_string()]);
+        assert_eq!(labels[1..], ["Import from Folder…".to_string(), "Import from Device →".to_string()]);
         let all: Vec<MenuNode> = bar.iter().flat_map(|(_, v)| v.clone()).collect();
         let text = serde_json::to_string(&all).unwrap();
         assert!(!text.contains("Add Folder") && !text.contains("\"Add Photos"), "no add-folder wording left in the menus");

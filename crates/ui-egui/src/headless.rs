@@ -3957,7 +3957,7 @@ mod tests {
         let r = h.request("ui.clickWidget", json!({"id": cross}), t);
         assert_eq!(r["ok"], true, "{r}");
         h.step();
-        assert!(h.app.scan.is_none(), "✕ closes the scan at once");
+        assert!(h.app.scan.is_none(), "× closes the scan at once");
         gate.store(true, std::sync::atomic::Ordering::Relaxed);
         h.settle(SETTLE);
         assert!(h.app.ui.dialog.is_none(), "a cancelled scan opens no review");

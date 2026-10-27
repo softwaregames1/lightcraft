@@ -361,7 +361,7 @@ fn the_folders_scan_shows_a_row_and_its_cross_closes_the_dialog() {
     assert!(rows[0].cancellable);
     h.app.session.activity.cancel(rows[0].id).unwrap();
     h.step();
-    assert!(h.app.sync.is_none(), "✕ stops the scan");
+    assert!(h.app.sync.is_none(), "× stops the scan");
     assert!(h.app.ui.dialog.is_none(), "and closes its dialog: there is nothing to show");
     gate.store(true, std::sync::atomic::Ordering::Relaxed);
     assert!(h.app.session.activity.list().is_empty());

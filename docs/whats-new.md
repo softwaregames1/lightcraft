@@ -51,22 +51,22 @@
   are refused when a PSD or PSB embeds GPS, since LightCraft cannot strip metadata from a byte-for-byte original copy.
 
 ### Choose where a Lightroom catalog goes
-- File ▸ Import Lightroom Catalog… now asks first: merge the catalog's photos, collections and edits into the
+- File → Import Lightroom Catalog… now asks first: merge the catalog's photos, collections and edits into the
   library open now, or create a new library for them, named after the catalog and placed next to the open library
   (both can be changed). LightCraft opens the new library, then imports the catalog into it. Cancel does nothing.
   Open Library… on a Lightroom catalog goes through the same choice.
-- To import as before without the question, choose Settings ▸ General ▸ When importing a Lightroom catalog ▸
+- To import as before without the question, choose Settings → General → When importing a Lightroom catalog →
   Always merge into the open library, or tick Don't ask again in the window. Ask where to import it brings the
   question back.
 
 
 ### Choose which library opens at launch
-- Settings ▸ General ▸ **At launch**: *Open the last library* (as before) or *Ask me*. With *Ask me*, LightCraft
+- Settings → General → **At launch**: *Open the last library* (as before) or *Ask me*. With *Ask me*, LightCraft
   starts with a window listing your recent libraries: each one's name, the folder it is in and when you last opened
   it. One that is gone (moved, renamed, on a disconnected drive), can't be read or no longer holds a library is
   greyed out with the reason. Each one is checked in the background, showing *Checking…* until it answers (and that
   the drive isn't answering after 5 s), so the list never waits on a network share that is offline or a disk that
-  has to wake up; File ▸ Open Recent Library uses the same answers (it greys out only libraries that are gone). Making the list only looks: it never locks or writes anything in your libraries, so one
+  has to wake up; File → Open Recent Library uses the same answers (it greys out only libraries that are gone). Making the list only looks: it never locks or writes anything in your libraries, so one
   that another program has open is reported, with who has it, when you press **Open**, and the window stays. The
   last library is selected; **Open** (or Return, or a double-click) opens it,
   **Open Another…** asks for a folder, **New Library…** makes one, **Quit** (or Esc) quits. ↑ and ↓ move through
@@ -75,7 +75,7 @@
   another one from it, or press Esc to keep working where you were. On a Mac, an Option key held from before
   LightCraft starts is only noticed once it changes, so press it as the window appears.
 - `--library` and `LIGHTCRAFT_LIBRARY` still decide the library when given, and `lightcraft-cli` never asks.
-- File ▸ Open Recent Library ▸ **Remove from List** forgets one library, and the launch window's **Remove from
+- File → Open Recent Library → **Remove from List** forgets one library, and the launch window's **Remove from
   List** does the same. Only the entry goes: the library and its photos stay where they are. Agents use
   `app.recentLibraries {remove: path}`; its list now also says when each library was last opened (`lastOpened`).
 - Photos dropped on the window while the list (or the window of a library that couldn't open) is up wait for the
@@ -117,7 +117,7 @@
   preview that made Settings much wider on that tab. The preview stays above the page while it scrolls, so pointing
   at a template further down still shows it there (in a very short window it scrolls with the page instead). Pointing
   at a template no longer pushes its rows out from under the pointer, and the Export buttons wrap.
-- A long folder (General ▸ Library ▸ Location, the folder Auto Import watches, the smart previews folder, a monitor
+- A long folder (General → Library → Location, the folder Auto Import watches, the smart previews folder, a monitor
   profile's file) is shortened to its last folders ("…/Pictures/Library") on one line; rest the pointer on it for
   the whole path.
 ### One star rating control
@@ -133,19 +133,19 @@
 ### Menu names that say what they are
 - Switches in the menus are named for what they show, with the check mark saying whether it is on: Filmstrip ✓,
   Focus Point ✓, Clipping ✓, Photo Counts ✓, Mask Overlay ✓ instead of Show Focus Point ✓. No two commands share a
-  name any more: View ▸ Detail is now Detail View (the Edit section Detail keeps its name), Window ▸ Edit is Edit
+  name any more: View → Detail is now Detail View (the Edit section Detail keeps its name), Window → Edit is Edit
   Panel, and Compare Before and After is Before/After Side by Side, next to Split and Top/Bottom.
-- The preview cache command has one name, Discard Preview Cache, in File ▸ Previews and in the toast that confirms
+- The preview cache command has one name, Discard Preview Cache, in File → Previews and in the toast that confirms
   it. Keyboard shortcuts are unchanged.
 ### Dropping files shows what will happen
 - While files are dragged over the window, it dims and a card says what dropping will do: review the photos and
   folders for import, import the presets, or open the face model. If a dialog is open, the card asks you to close it
   first, and a drop is refused with a message instead of replacing the dialog. The same goes while an import is
   running, and in the web version.
-- The import review of a finished scan (a drop, or File ▸ Import) no longer replaces a dialog you opened in the
+- The import review of a finished scan (a drop, or File → Import) no longer replaces a dialog you opened in the
   meantime; it opens as soon as that dialog is closed.
-- Photos and folders dropped on the window now open the same import review as File ▸ Import, so you pick add, copy or
-  move, the destination and a preset before anything is imported. Settings ▸ Import ▸ "Import dropped files without
+- Photos and folders dropped on the window now open the same import review as File → Import, so you pick add, copy or
+  move, the destination and a preset before anything is imported. Settings → Import → "Import dropped files without
   review" brings back the old behaviour of importing at once.
 - In the web version, a dropped file the browser can't read, or that can't be imported, now shows a message instead of
   failing silently.
@@ -203,7 +203,7 @@
   change (a time that isn't a date, a shift past year 9999), it now says why and stays open, instead of closing.
 
 ### Month names in folder and file name templates
-- Date templates take the month by name: `%B` gives January, `%b` gives Jan. Import ▸ Folders ▸ Custom template…
+- Date templates take the month by name: `%B` gives January, `%b` gives Jan. Import → Folders → Custom template…
   `{date:%Y}/{date:%B}` files photos into 2026/January, 2026/February…, the layout many existing libraries already
   use. The names are English in every interface language, so folders don't change when the language does. Rename
   Photos and export file names take them too.
@@ -284,7 +284,7 @@
   Synchronize Folder checks a single photo. Its row in the activity stack used to sit at "0 of 64085" with an empty
   bar all that time, as if it had stopped. It now says how many folders and files it has listed so far, with a bar
   that moves on its own, and then counts the photos it checks. The dialog says the same.
-- ✕ on the row stops the listing too, not only the checks after it.
+- × on the row stops the listing too, not only the checks after it.
 
 ### The photo grid keeps up with imports into a large library
 - While photos are imported into a large library, the grid takes in each batch as it arrives instead of reading
@@ -299,14 +299,14 @@
   longer decodes the photo again for every entry.
 
 ### Constrain Crop tightens the crop you see
-- Geometry ▸ Constrain Crop now changes the crop itself, as in Lightroom (issue #1927). Ticking it, or moving a
+- Geometry → Constrain Crop now changes the crop itself, as in Lightroom (issue #1927). Ticking it, or moving a
   Geometry slider, Upright or a lens correction while it is ticked, shrinks the crop about its centre until the blank
   corners left by the correction are gone, and the Crop tool shows the tighter crop. Before, it only applied when the
   photo was shown outside the Crop tool, so in the Crop panel, where the checkbox is, nothing seemed to change. A crop
   you draw by hand is kept as drawn, and unticking keeps the tighter crop.
 
 ### Web: no backup that misses unsaved changes
-- In the browser version, File ▸ Back Up Library… no longer reports success while a save is failing (storage full or
+- In the browser version, File → Back Up Library… no longer reports success while a save is failing (storage full or
   cleared): the backup copies the stored library, so it left out the changes that couldn't be saved (issue #1508). It
   now refuses to start and says how many changes are unsaved and why. LightCraft retries the save with every change;
   back up once nothing is left unsaved.
@@ -332,13 +332,13 @@
 - Radial masks brought over from Lightroom Classic (catalog import, XMP sidecars, edits inside DNGs and presets) now
   apply their effect inside the circle, as Lightroom does, instead of outside it (issue #1815). A mask inverted in
   Lightroom stays inverted, and older Radial Filters keep their Effect Outside / Invert Mask setting. Photos imported
-  before this keep the masks they got: Photo ▸ Read Metadata from File reads a sidecar's again.
+  before this keep the masks they got: Photo → Read Metadata from File reads a sidecar's again.
 
 ### Delete in an album removes from the album only
 - In an album, the Delete key now takes the selected photos out of the album, as in Lightroom. It used to move them
   to Recently Deleted, so they also left their folder's view (issue #1805). They stay in the library and in their
-  folder; Edit ▸ Undo puts them back in the album. Photo ▸ Remove from Album does the same and now shows the key.
-  To delete photos from the library from an album, use Photo ▸ Delete Photo or right-click ▸ Delete Photo. In a smart
+  folder; Edit → Undo puts them back in the album. Photo → Remove from Album does the same and now shows the key.
+  To delete photos from the library from an album, use Photo → Delete Photo or right-click → Delete Photo. In a smart
   album, Delete changes nothing: its rules decide what it shows.
 
 ### Local folders select a photo
@@ -360,7 +360,7 @@
 - A star, the moon or a light that moves between the photos of a bracket (a night bracket on a tripod) no longer
   leaves a black hole where the middle photo had it clipped. With Deghost, the brightest photo's copy of it in a
   dark sky is now removed too.
-- Photo ▸ Photo Merge ▸ HDR for Each Bracket Set merges every bracket among the selected photos with the last HDR
+- Photo → Photo Merge → HDR for Each Bracket Set merges every bracket among the selected photos with the last HDR
   settings, one after the other: each stack, and photos taken less than a second apart at different exposures.
   From the command line: `lightcraft-cli merge hdr-batch FOLDER`.
 - Merging uses about a quarter less memory: three 67 MP raws need 3.8 GB instead of 4.8 GB.
@@ -398,7 +398,7 @@
   under the pointer. It used to be centred, so every tab of a different height moved it.
 
 ### Layout image over the loupe
-- View ▸ Loupe Overlay ▸ Choose Layout Image… draws a PNG with transparency over the photo in the loupe, such as
+- View → Loupe Overlay → Choose Layout Image… draws a PNG with transparency over the photo in the loupe, such as
   a magazine cover's masthead and cover lines, so you can frame a shot for the page it is made for. It fits inside
   the photo, follows zoom and pan, and ⌥⌘O shows or hides it. The same menu sets its opacity and a matte that
   darkens the photo outside it. The layout stays chosen across launches.
@@ -445,7 +445,7 @@
 ### More Canon EOS R6 Mark II C-RAW files decode
 - Some EOS R6 Mark II C-RAW files (about 1 in 50 in one photographer's library) opened as their preview with
   "Canon CRX adaptive QP value 172" or "175". They now decode from the sensor data. Photos imported before this
-  switch over with Photo ▸ Reload from Disk.
+  switch over with Photo → Reload from Disk.
 
 ### Nikon raws without coloured edge bars
 - Raws from older Nikon bodies no longer show a thin coloured or dark bar along one edge (the right edge, or the top
@@ -494,19 +494,19 @@
   by side, and `keyword:"new york"` a keyword of two words.
 
 ### Where the camera focused
-- **View ▸ Show Focus Point** (⌥F) draws the autofocus frame the camera recorded over the photo, in Detail, Compare
+- **View → Show Focus Point** (⌥F) draws the autofocus frame the camera recorded over the photo, in Detail, Compare
   and Survey, following rotation and crops; the Info panel says how it focused (`AF-C · Wide · Animal Eye Tracking`).
   Lightroom has no such view.
 - **Z zooms to it**: Toggle Zoom centres on the focus point, so checking that the subject is sharp is one key
-  (View ▸ Zoom to Focus Point turns this off). Photos without a point zoom as before.
+  (View → Zoom to Focus Point turns this off). Photos without a point zoom as before.
 - Sony α1 (ILCE-1) and A7S III (ILCE-7SM3) raws for now; manual-focus shots and Wide shots that only report the frame
   centre show nothing. More cameras will follow. Details: [focus-points.md](focus-points.md).
 - **Photos already in your library get theirs in the background**: LightCraft reads just the few kilobytes of each
   file that hold the focus point (about 100 photos a second from a spinning disk), with a *Reading focus points* row
-  in the activity stack you can stop. Photo ▸ Read Focus Points runs it by hand.
+  in the activity stack you can stop. Photo → Read Focus Points runs it by hand.
 
 ### Cleaner HDR merges
-- Bright windows in an HDR made with Photo ▸ Photo Merge ▸ HDR no longer take a magenta tinge from the brighter
+- Bright windows in an HDR made with Photo → Photo Merge → HDR no longer take a magenta tinge from the brighter
   photos along the areas they clipped: right next to a clipped area, a photo's colour isn't used. It showed most when
   the highlights were darkened or saturated.
 - The same photos give the same HDR whatever order they are selected in; before, a different order could change a
@@ -539,10 +539,10 @@
 - Still tallied from every photo on each edit: the filter bar's lists of cameras, lenses and keywords.
 
 ### A view can hold its photos until you refresh it
-- View ▸ Hold View Until Refreshed (off unless you turn it on; kept with the library). With it on, an edit that makes
+- View → Hold View Until Refreshed (off unless you turn it on; kept with the library). With it on, an edit that makes
   a photo stop matching the view keeps it in the view: a keyword given in a smart album of photos without keywords,
   a flag taken off in Picks, a rating that falls under the filter bar's. With it off, as before, the photo leaves the
-  grid at once and every photo after it moves up. View ▸ Refresh View (also in the sort menu while the hold is on),
+  grid at once and every photo after it moves up. View → Refresh View (also in the sort menu while the hold is on),
   Reshuffle, another source, filter or sort, or new rules for the smart album shows what matches now.
 - Photos that start matching still appear at once, and deleting a photo or taking it out of the album or folder
   shown still takes it out of the view.
@@ -562,7 +562,7 @@
 - For scripts: a size set with `ui.resize` is remembered like any other, so a script that needs a size sets it.
 
 ### Keyword List: a keyword shows that one inside it is applied
-- In the Keyword List (right panel ▸ Keywords), a keyword whose box is empty now carries a dot in it when the
+- In the Keyword List (right panel → Keywords), a keyword whose box is empty now carries a dot in it when the
   selected photos have a keyword inside it, at any depth: with `Places › Italy › Rome` on a photo, `Places` and
   `Italy` show the dot and `Rome` the tick. A folded keyword no longer hides that something in it is applied.
   Resting on the box names what is inside.
@@ -571,8 +571,8 @@
   keyword itself to the selected photos.
 
 ### HDR merges keep the lens correction
-- An HDR made with Photo ▸ Photo Merge ▸ HDR now keeps the lens correction the photos carry (Sony's, Panasonic's
-  and Leica's, and the one some DNGs carry, e.g. from drones): Optics ▸ Enable Lens Corrections straightens it as it
+- An HDR made with Photo → Photo Merge → HDR now keeps the lens correction the photos carry (Sony's, Panasonic's
+  and Leica's, and the one some DNGs carry, e.g. from drones): Optics → Enable Lens Corrections straightens it as it
   does the photos it was made from. HDRs merged before this don't have it; merge them again.
 
 ### Portable mode
@@ -758,22 +758,22 @@
 ## 2026-10-12
 
 ### Older raw cameras
-- Canon PowerShot G9 raws open with the camera's white balance (White Balance ▸ As Shot); it used to start from a
+- Canon PowerShot G9 raws open with the camera's white balance (White Balance → As Shot); it used to start from a
   neutral default.
 ## 2026-10-12
 
 ### Older raw cameras
-- Olympus E-10 raws open with the camera's white balance (White Balance ▸ As Shot) and without the grey haze in
+- Olympus E-10 raws open with the camera's white balance (White Balance → As Shot) and without the grey haze in
   the shadows: the black level recorded in the file is now subtracted.
 ### Told when there is no GPU
 - When GPU rendering is on but no graphics processor can be found, LightCraft now says so once at start-up instead
-  of quietly rendering everything on the CPU, much more slowly. Help ▸ System Info says why. On NixOS this happens
+  of quietly rendering everything on the CPU, much more slowly. Help → System Info says why. On NixOS this happens
   when a `cargo` build runs outside `nix develop` (no Vulkan loader); start it from there.
 ## 2026-10-12
 
 ### Leaf and Hasselblad raws
 - The Hasselblad Lunar's raws (a Sony NEX-7 inside) now develop from their sensor data with every editing tool,
-  instead of opening as their embedded preview. Photos imported earlier switch over with Photo ▸ Reload from Disk.
+  instead of opening as their embedded preview. Photos imported earlier switch over with Photo → Reload from Disk.
 - An uncompressed Leaf Aptus 22 MOS no longer opens as a dark, colourless picture of its sensor mosaic: it imports
   as a raw and shows its embedded preview (preview only, with the reason), as the compressed MOS files do.
 ## 2026-10-12
@@ -799,7 +799,7 @@
 - The titles **Keywords** and **Keyword List** in the Keywords panel fold their sections shut and open again, so
   the list of every keyword is one click away however many keywords the selected photos have. What is folded is
   remembered.
-- Settings ▸ Interface ▸ Keywords of the selection ▸ **Grouped by parent** lays the selected photos' keywords out by
+- Settings → Interface → Keywords of the selection → **Grouped by parent** lays the selected photos' keywords out by
   the keyword they are inside: "Places › Italy" once, on a line of its own, with Rome, Venice and the others side by
   side under it. A long list stops after eight lines with "+N more", and the suggestions say only the keyword's own
   name. Whole names, one chip per keyword, stays the default.
@@ -810,7 +810,7 @@
   becomes a keyword unnoticed. The suggestions further down stay put while you type.
 - With several photos selected, the Keywords panel says how many photos its keywords belong to. The × on a keyword
   is a larger target that lights up on its own, and taking a keyword off several photos at once now says which
-  keyword left how many photos, and that Edit ▸ Undo puts it back.
+  keyword left how many photos, and that Edit → Undo puts it back.
 
 ### HDR and panorama merges of CR2 keep their colour
 - Photo Merge of Canon CR2 (and other raws whose colour LightCraft fits from the camera's own JPEG, such as NEF and
@@ -832,14 +832,14 @@
 
 ### Lens corrections
 - Sony A7R VI (ILCE-7RM6) raws are corrected for lens distortion from the table the camera records in each file,
-  under Optics ▸ Enable Lens Corrections, on by default for newly imported photos. On 33 photos shot with the camera's
+  under Optics → Enable Lens Corrections, on by default for newly imported photos. On 33 photos shot with the camera's
   correction on (24–70 mm, 100 mm macro, 200–600 mm) the render lines up with the camera's JPEG within 0.68 px at
   1440 px at the corners, where it was up to 17 px off before. The camera's lateral chromatic aberration table is read
   too, but not applied by default: our demosaic already hides most of that colour fringing, and the table on top made
   it slightly worse. The vignetting table is read but not applied: the camera's own JPEGs don't apply it either. This
   covers lossless, Compressed and Compressed HQ (ARW 6.0) ARWs alike. The A7R IVA (ILCE-7RM4A) has its own distortion
   correction, checked against Sony's exports; other Sony bodies record the same tables, but they stay uncorrected until
-  they are checked the same way. Photos imported earlier get the correction with Photo ▸ Reload from Disk (when still
+  they are checked the same way. Photos imported earlier get the correction with Photo → Reload from Disk (when still
   at their import settings). See `docs/sony-ilce7rm6-lens-corrections.md`.
 
 ### The thumbnail cache is no longer taken for your photos
@@ -867,7 +867,7 @@
   D60, D80 and D2Xs now show the area the camera itself frames, a few pixels smaller than before.
 
 ### JPEG XL export
-- Export as JPEG XL (issue #247): Format ▸ JPEG XL in the Export dialog, `format: "jxl"` for agents and the CLI
+- Export as JPEG XL (issue #247): Format → JPEG XL in the Export dialog, `format: "jxl"` for agents and the CLI
   (`render in.raw -o out.jxl`). Quality as for JPEG, or Lossless; Effort (Fast / Normal) trades time for a
   smaller file; Progressive files show a coarse version first. 8- or 16-bit, sRGB, Display P3 or Rec. 2020 (lossless
   files also Adobe RGB and ProPhoto), metadata as for JPEG. With HDR output, photos edited in HDR are written as
@@ -894,11 +894,11 @@
 ### Canon EOS R5 Mark II
 - Canon EOS R5 Mark II C-RAW files that opened as "preview only" (more than half of them, depending on the
   scene) now develop from their sensor data with every editing tool, like the camera's other raws. Photos
-  imported earlier switch over with Photo ▸ Reload from Disk.
+  imported earlier switch over with Photo → Reload from Disk.
 
 ### Switching libraries
-- File ▸ New Library… asks for a name, then where to put it, and opens the new library (issue #902).
-- File ▸ Open Recent Library lists the last 8 libraries; ones that are gone (moved, drive disconnected) are greyed
+- File → New Library… asks for a name, then where to put it, and opens the new library (issue #902).
+- File → Open Recent Library lists the last 8 libraries; ones that are gone (moved, drive disconnected) are greyed
   out. Clear Recent Libraries empties the list.
 - The open library's name shows under My Photos at the top of the left panel and in the window title.
 - `lightcraft-cli --library` given a library's own file (`catalog.snap`) opens its folder instead of failing with
@@ -906,12 +906,12 @@
 - Agents use `app.newLibrary {path, name}`, `app.recentLibraries` and `app.clearRecentLibraries`.
 
 ### Edit in PhotoCraft
-- Right-click a photo ▸ Edit In ▸ Edit in PhotoCraft (or Photo ▸ Edit In, ⇧⌘E) renders a copy with your edits, stacks it
+- Right-click a photo → Edit In → Edit in PhotoCraft (or Photo → Edit In, ⇧⌘E) renders a copy with your edits, stacks it
   with the original and opens it in PhotoCraft. LightCraft finds PhotoCraft where its installer put it (Windows,
   macOS, Linux packages, AppImage, Flatpak), and says so if it isn't installed, before making a copy.
-- The copy is a 16-bit PSD by default, which PhotoCraft saves straight back to with File ▸ Save; when you come back to
+- The copy is a 16-bit PSD by default, which PhotoCraft saves straight back to with File → Save; when you come back to
   LightCraft the copy shows what you saved.
-- Settings ▸ General ▸ External Editing: the format (PSD or TIFF), colour space and bit depth for PhotoCraft and for
+- Settings → General → External Editing: the format (PSD or TIFF), colour space and bit depth for PhotoCraft and for
   the other editor (Edit in Other Editor, now ⌥⌘E), and where PhotoCraft is if you use a portable copy.
 - Export can write PSD too (flat, 8- or 16-bit).
 
@@ -927,7 +927,7 @@
 - A photo that runs into a bug in LightCraft while it renders (in a raw decoder or the editing pipeline) now fails
   like a photo that can't be opened, with the reason, instead of rendering forever; its thumbnail stops waiting too.
   Each such bug used to take one of the render threads with it, so after a few of them no photo rendered until
-  LightCraft was restarted. The bug is still written to the log (Help ▸ Open Log Folder) for a report.
+  LightCraft was restarted. The bug is still written to the log (Help → Open Log Folder) for a report.
 
 ### Library sorting
 - Photos that tie on the sort key (equal ratings, one import batch, a burst shot within the same second) now sort by
@@ -939,11 +939,11 @@
   presets.json) stays responsive. Every command used to re-serialize the whole list to see whether it had changed
   (~0.6 s per slider tick); now the list is saved only after it changes, and a slider tick takes ~2 ms.
 - The Presets panel builds only the rows in view (and their thumbnails) instead of every preset on every frame; the
-  preset pickers in Import and Settings ▸ Import scroll the same way.
+  preset pickers in Import and Settings → Import scroll the same way.
 - Importing a large collection and opening its library no longer compare every preset with every other.
 
 ### Slideshow export: PDF, JPEG and video
-- View ▸ Export Slideshow… (or the Export buttons at the end of Settings ▸ Slideshow) writes the slideshow out, like
+- View → Export Slideshow… (or the Export buttons at the end of Settings → Slideshow) writes the slideshow out, like
   Lightroom Classic's Export PDF, Export JPEG and Export Video: the photos in view as their slides, with the layout,
   overlays and the intro and ending screens, in view order.
 - **PDF:** one page per slide at 1024, 1920 or 3840 pixels on the long side, at a JPEG quality you choose. Each page
@@ -954,12 +954,12 @@
   its duration and the fades are rendered frame by frame (crossfades, or fades through the fade colour). The video has
   no sound yet. It is AV1 rather than Lightroom's H.264, which has no open encoder we can ship; current browsers,
   VLC and recent phones and TVs play it.
-- The export runs in the background with its row in the activity stack; ✕ stops it and leaves no half-written file
+- The export runs in the background with its row in the activity stack; × stops it and leaves no half-written file
   behind. A photo that can't be read is skipped and named in the message at the end. Agents use `slideshow.export`
   (`slideshow.exportStatus` for the result).
 
 ### Slideshow templates
-- Settings ▸ Slideshow now opens with a template browser, like Lightroom Classic's Template Browser. A template holds
+- Settings → Slideshow now opens with a template browser, like Lightroom Classic's Template Browser. A template holds
   everything about how a slideshow looks and plays: the playback timing and fades, the layout, options and backdrop,
   the overlays and the intro and ending screens. Click one to apply it; point at one to see it on the selected photo in
   the preview beside it without changing anything.
@@ -970,7 +970,7 @@
 - Save the current settings as a template of your own; right-click it to update it with the current settings, rename,
   export or delete it, and import templates others share with you. Your templates are `.json` files in the settings
   folder's `slideshow-templates` folder, shared by all your libraries.
-- Applying a template can't be undone with Edit ▸ Undo (slideshow settings are library preferences), so the settings it
+- Applying a template can't be undone with Edit → Undo (slideshow settings are library preferences), so the settings it
   replaced are listed as "Previous settings" until you quit: click that to go back.
 - A template file that can't be used (damaged, from a newer LightCraft, too large) is listed as skipped instead of
   stopping the others, and a template whose identity plate image or background photo isn't there still applies, with a
@@ -985,7 +985,7 @@
 - The intro plays once before the first photo; the ending after the last photo when Repeat is off (while repeating
   the show runs until you stop it, so the ending doesn't come up). Random order never moves them, ←/→ step across them,
   and the control bar says Intro or End while one is up (the photo count only counts photos).
-- Set them in Settings ▸ Slideshow ▸ Titles; the preview there switches between the photo's slide, the intro and the
+- Set them in Settings → Slideshow → Titles; the preview there switches between the photo's slide, the intro and the
   ending. They are saved with the library. Agents use `slideshow.titles`, and `slideshow.preview {title: "intro"}`
   renders a screen as a PNG.
 
@@ -998,7 +998,7 @@
   Each sits at one of nine anchors of the slide or of the photo, moved by an offset, and never leaves the slide.
 - The export watermark can be drawn on every slide's photo too ("Use export watermark" takes the one you last
   exported with).
-- Set them in Settings ▸ Slideshow ▸ Overlays; the slide preview there and View ▸ Slideshow show them. Sizes are a
+- Set them in Settings → Slideshow → Overlays; the slide preview there and View → Slideshow show them. Sizes are a
   share of the slide, so slides look the same on any screen. They are saved with the library. Agents use
   `slideshow.overlays`; `slideshow.preview` now also returns where each overlay landed.
 
@@ -1007,19 +1007,19 @@
   linked, or each on its own), Zoom to Fill Frame (crop the photo to fill its cell), a stroke border (colour, width),
   a cast shadow (opacity, offset, radius, angle), and a backdrop colour with an optional colour wash (a gradient from a
   second colour, at an angle and opacity) and a background image (a photo from the library, at an opacity).
-- Set them in Settings ▸ Slideshow, which now shows the selected photo as a slide as you change them (with the margin
+- Set them in Settings → Slideshow, which now shows the selected photo as a slide as you change them (with the margin
   guides, at the screen's aspect or 16:9 / 4:3). Sizes are a share of the slide, so a slide looks the same on any
   screen. They are saved with the library.
-- View ▸ Slideshow plays the composed slides, prepared ahead off the UI thread like before, so fades and the playback
+- View → Slideshow plays the composed slides, prepared ahead off the UI thread like before, so fades and the playback
   controls work as they did. With the default layout (no margins, border, shadow or backdrop) it plays the photos as
   before. Agents use `slideshow.layout`, and `slideshow.preview` returns one composed slide as a PNG.
 
 ### Slideshow playback
-- View ▸ Slideshow (⌥⌘↩) now plays with Lightroom Classic's Playback settings: how long each slide stays up, a fade
+- View → Slideshow (⌥⌘↩) now plays with Lightroom Classic's Playback settings: how long each slide stays up, a fade
   between slides (a crossfade, or through black, white or any colour; 0 cuts), random order (every photo once per
   pass, a new order each time round), repeat (off: the slideshow ends after the last photo) and preparing previews in
   advance (the next two slides render while the current one is up, so a fade never waits or flashes).
-- Change them in Settings ▸ Slideshow (View ▸ Slideshow Options…); they are saved with the library. Agents use
+- Change them in Settings → Slideshow (View → Slideshow Options…); they are saved with the library. Agents use
   `slideshow.playback`; `view.slideshow` takes any of them for one run (`interval` still sets the slide duration).
 - While it plays, moving the pointer shows a small control bar: previous, play / pause, next, the slide number and
   end. Space pauses, ← / → step (a cut), Esc ends. A slide's time starts once it is shown sharp.
@@ -1034,14 +1034,14 @@
 
 ### Previews match exports on Mac screens
 - On macOS, photos are shown through the profile of the screen the window is on while no monitor profile is chosen in
-  Settings ▸ Display (issue #787). On P3 screens previews used to look more saturated than the exported files in
+  Settings → Display (issue #787). On P3 screens previews used to look more saturated than the exported files in
   Preview or Photos. Moving the window to another screen is followed; **Use Screen Profile** goes back to it after
   choosing a profile file.
 
 ### Sidebar sections
 - Arrange the left sidebar your way: drag Albums, Local, By Date, Folders or Keywords by its header to move it (a line
   shows where it will go), or right-click a header for Move Up / Move Down.
-- Hide the sections you don't use: View ▸ Sidebar Sections, or right-click a header ▸ Hide This Section. Right-click
+- Hide the sections you don't use: View → Sidebar Sections, or right-click a header → Hide This Section. Right-click
   the My Photos title to bring one back, or choose Reset Sidebar Sections. The arrangement is remembered.
 - In a long section, the header stays at the top of the sidebar while you scroll through its rows, so you always see
   which section you are in and can fold it from there.
@@ -1072,10 +1072,10 @@
   demosaic already lines the colour planes up. Details and measurements: `docs/fuji-lens-corrections.md`.
 
 ### Appearance
-- Settings ▸ Interface ▸ Appearance Mode: Sync with System, Dark Mode or Light Mode, above a light
+- Settings → Interface → Appearance Mode: Sync with System, Dark Mode or Light Mode, above a light
   and a dark theme card, each previewing its theme (dark: Charcoal, the look so far, or Midnight;
   light: Silver or Paper). New and existing installs stay dark; following the system is opt-in.
-- The top bar's appearance button cycles Auto, Light, Dark (a monitor, sun or moon), and View ▸
+- The top bar's appearance button cycles Auto, Light, Dark (a monitor, sun or moon), and View →
   Appearance lists the modes and themes. On Linux, Auto follows the desktop portal's colour scheme
   as it changes, without polling.
 
@@ -1092,7 +1092,7 @@
 - Long-running tasks show in one place, top left under the top bar, as in Lightroom Classic (issue #345): imports and
   folder scans, exports (and the contact sheet PDF), Synchronize Folder, Build / Smart Previews, Lightroom catalog import, Photo Merge, model downloads, the face scan,
   AI Denoise and Find Missing Photos. Each row has the task's name, a progress bar, the count and what it is working
-  on; ✕ stops the tasks that can stop. Three rows show, then "+N more". The separate export panel and the progress
+  on; × stops the tasks that can stop. Three rows show, then "+N more". The separate export panel and the progress
   windows and toasts are gone.
 - Quitting while a task that can be stopped is running asks first ("Quit Anyway" stops it).
 - Agents list and stop tasks with `activity.list` and `activity.cancel`; `ui.inspect` reports them as `activity`.
@@ -1167,7 +1167,7 @@
 - Any Searchable Text also finds the state / province, alt text, people and a virtual copy's name.
 
 ### Keyword lists
-- File ▸ Import Keywords… and Export Keywords… read and write keyword list files as Lightroom Classic does (a keyword
+- File → Import Keywords… and Export Keywords… read and write keyword list files as Lightroom Classic does (a keyword
   a line, a tab per level, synonyms in braces, keywords left out of export in brackets). Capture One, darktable, Adobe
   Bridge and Photo Supreme (its Formatted Vocabulary File) use the same files, so keyword lists move between them and
   LightCraft. Importing adds the keywords you don't have, in one undo step; a file it can't read says which line, or
@@ -1175,7 +1175,7 @@
   hold (such as a name in brackets), which it leaves out so the file always reads back.
 
 ### Keyword sets
-- Keyword Set ▸ Edit Set… edits a set's nine keywords in place, one field per ⌥ key, and renames it (or saves the edits as a new
+- Keyword Set → Edit Set… edits a set's nine keywords in place, one field per ⌥ key, and renames it (or saves the edits as a new
   set). An empty field leaves its key empty instead of moving the keywords after it; editing Recent Keywords and naming
   them saves a new set.
 
@@ -1198,7 +1198,7 @@
   Inside This Keyword, Purge Unused Keywords.
 - Drag a keyword onto another to nest it, or onto the list's title to bring it back to the top level; photos dragged
   from the grid onto a keyword get it.
-- Right-click ▸ Put New Keywords Inside This Keyword: new keywords, made with + or typed in the box above, go inside
+- Right-click → Put New Keywords Inside This Keyword: new keywords, made with + or typed in the box above, go inside
   it. The list is there with no photo selected too, to set up keywords first.
 - Keyword tag options decide what exported files carry: Include on Export, Export Containing Keywords, Export
   Synonyms. Exports now write keyword names to `dc:subject` and their paths to `lr:hierarchicalSubject`, and keywords
@@ -1211,7 +1211,7 @@
   no longer saves it). Return in those dialogs now confirms them, and their name opens selected. More fields will
   follow.
 - On Windows and Linux, Ctrl+C outside a text field copies edit settings and Ctrl+V pastes them (⇧Ctrl+V: Paste
-  Selected Settings). Ctrl+V only reaches LightCraft while the system clipboard holds text; otherwise use Edit ▸ Paste Edit
+  Selected Settings). Ctrl+V only reaches LightCraft while the system clipboard holds text; otherwise use Edit → Paste Edit
   Settings.
 
 ### Dialogs
@@ -1219,16 +1219,16 @@
   (issue #782).
 
 ### Synchronize Folder
-- Right-click a folder (or a disk other than the startup disk) in the sidebar's Folders section ▸ Synchronize
+- Right-click a folder (or a disk other than the startup disk) in the sidebar's Folders section → Synchronize
   Folder…. The folder and the folders inside it are scanned in the background for photos added on disk, photos whose
   file is gone, photos whose file was renamed or moved within the folder, and XMP sidecars changed by other apps; then
   choose what to do: import the new photos and relink the moved ones (the defaults), move the missing ones to Recently
   Deleted, read the metadata updates. A folder on a disk that isn't connected is reported as such. Synchronizing
-  runs in the background with a row in the activity stack (✕ stops it); everything it does is one undo step, and no file on disk
+  runs in the background with a row in the activity stack (× stops it); everything it does is one undo step, and no file on disk
   is touched. Agents use `folder.scanChanges` and `folder.synchronize`.
 
 ### Folder colour labels
-- Right-click a folder (or a disk other than the startup disk) in the sidebar's Folders section ▸ Set Color Label ▸ a colour or None. The row
+- Right-click a folder (or a disk other than the startup disk) in the sidebar's Folders section → Set Color Label → a colour or None. The row
   shows the label's dot before its photo count. Agents use `folder.label` (`path`, `label`); `library.folders`
   reports each row's `label`.
 - A label follows its folder when it is renamed or moved in LightCraft, together with the labels of the folders
@@ -1237,7 +1237,7 @@
   opened a library, older versions refuse it, as with every format change.
 
 ### Monitor profiles
-- Settings ▸ Display ▸ Choose Profile… shows photos through your monitor's ICC profile (matrix/TRC or LUT-based), so
+- Settings → Display → Choose Profile… shows photos through your monitor's ICC profile (matrix/TRC or LUT-based), so
   colours are right on wide-gamut and calibrated displays instead of oversaturated. The Detail view renders straight
   into the display's own gamut; thumbnails and other previews are converted to it. Histograms, the preview caches
   and exports don't change. Agents use `app.displayProfile`. See [display profiles](display-profiles.md).
@@ -1246,7 +1246,7 @@
 - Highlights and Shadows keep the fine detail of the tones they move (issue #632): pulling Highlights down on a bright
   sky no longer flattens the twigs, lines and texture in it, and lifting Shadows keeps the texture of dark areas, much
   as Exposure would; the edges between bright and dark regions stay as sharp as before. This is rendering process 2:
-  new photos (and Reset) get it, photos you already edited keep their look until you choose Photo ▸ Update to Current
+  new photos (and Reset) get it, photos you already edited keep their look until you choose Photo → Update to Current
   Process. See [process versions](process-versions.md).
 
 ### Masking
@@ -1263,12 +1263,12 @@
 
 ### Albums tree
 - Album folders fold with the same disclosure triangle as Local, By Date, Folders and Keywords.
-- Right-click a folder ▸ New ▸ Create Album… / Create Smart Album… / Create Smart Album from Filter… / Create Folder…
+- Right-click a folder → New → Create Album… / Create Smart Album… / Create Smart Album from Filter… / Create Folder…
   makes it inside that folder (`dialog.newAlbum`, `dialog.newFolder`, `dialog.smartAlbum`, `dialog.newSmartAlbum` take `parent`).
 - Drag an album or folder onto a folder to move it there (a closed folder opens after 0.6 s under the pointer; a
   "Albums" header takes it back to the top level; Esc cancels; holding a dragged album or photos near the top or bottom edge of the sidebar scrolls it). Drop on the top or bottom half of another album,
-  or the edge of another folder, to place it before or after it: that folder is then ordered by hand. Right-click ▸
-  Sort Contents A–Z (or ＋ ▸ Sort Albums A–Z at the top level) goes back to by name. To put a folder after an open
+  or the edge of another folder, to place it before or after it: that folder is then ordered by hand. Right-click →
+  Sort Contents A–Z (or + → Sort Albums A–Z at the top level) goes back to by name. To put a folder after an open
   folder, fold that folder first (the bottom of an open folder means "inside"). Agents use `album.reorder`
   (`id`, `parent?`, `before?`) and `album.sort`.
 - The catalog format is now version 3 (`Album.order`, `Op::SetAlbumOrder`). Once this version has opened a library,
@@ -1286,7 +1286,7 @@
 - Help → Keyboard Shortcuts includes the number-key bindings. See [library shortcuts](library-shortcuts.md).
 
 ### Keyboard shortcuts
-- Shortcuts are editable: Help ▸ Keyboard Shortcuts (⌘/) lists every command with a search box; click a shortcut and
+- Shortcuts are editable: Help → Keyboard Shortcuts (⌘/) lists every command with a search box; click a shortcut and
   press the new keys (Esc cancels), × removes it, ↺ restores the original, Reset All undoes every change. A key that
   belonged to another command moves to the new one. Menus show the new keys; agents use `app.setShortcut`.
 - Return presses OK in Choose Edit Settings to Copy (⇧⌘C) and Paste Selected Settings (⇧⌘V), and Esc cancels them
@@ -1327,7 +1327,7 @@
   import only the raws and leave the JPEGs beside them (issue #344).
 
 ### Languages
-- The interface is available in Spanish (issue #371), German and Russian (Edit ▸ Language), alongside English,
+- The interface is available in Spanish (issue #371), German and Russian (Edit → Language), alongside English,
   Chinese (Simplified and Traditional), Japanese and Brazilian Portuguese.
 
 ### Editing
@@ -1371,20 +1371,20 @@
   embedded JPEG.
 - Apple ProRAW's gain table map (its local tone mapping, `ProfileGainTableMap`) is now read and kept when a photo is
   exported or converted to DNG. It is not applied by default: Lightroom Classic renders ProRAW without it. To see a
-  ProRAW the way the iPhone renders it, turn on Profile ▸ Camera local tone mapping (shown for photos that carry the
+  ProRAW the way the iPhone renders it, turn on Profile → Camera local tone mapping (shown for photos that carry the
   map); the option is per photo, so presets and Copy Settings carry it.
 - iPhone ProRAW and other DNGs that carry their own segmentation mattes (DNG semantic masks) use them for the Select
   Sky, Subject and Background masks instead of our heuristics, so the sky is selected where the camera found it
   (checked on one CC0 iPhone 12 Pro ProRAW). Photos without mattes are unchanged.
 - Panasonic and Leica raws (RW2, RWL) are now corrected for lens distortion the way the camera corrects its own JPEG
-  (issue #256): the correction the camera records in the file is applied under Lens Corrections ▸ Enable Profile
+  (issue #256): the correction the camera records in the file is applied under Lens Corrections → Enable Profile
   Corrections, on by default for newly imported photos, with the same framing as the camera's JPEG. At 12 mm the
   12–32 mm kit zoom was off by about 5 % of the image width at the corners before. Files shot with the correction off
   are unchanged; photos imported before this change get it when imported again.
 - Canon CR3 raws now develop from their sensor data: lossless RAW and C-RAW, checked sample for sample on the EOS
   M50, R100, R8 and RP (on the RP also in 1.6× crop mode). CR3 files the decoder can't read yet still open from their embedded JPEG, as before.
 - Canon EOS R7 C-RAW files develop from their sensor data too, instead of opening from their embedded JPEG. For R7
-  C-RAWs imported earlier, Photo ▸ Reload from Disk picks up the raw data.
+  C-RAWs imported earlier, Photo → Reload from Disk picks up the raw data.
 - Canon CRW, Minolta MRW, Sigma X3F, Kodak KDC, Leaf MOS and Epson ERF files that LightCraft can't decode yet
   now import as "preview only" with their embedded JPEG instead of failing. A raw whose data is damaged but whose
   preview is intact does the same.
@@ -1434,7 +1434,7 @@
   630 drivers): on Windows the window and GPU rendering use DirectX 12 only and never load the Vulkan driver unless
   asked to. `LIGHTCRAFT_GPU_BACKEND=dx12 | vulkan | metal | off` (or wgpu's `WGPU_BACKEND`, which GPU rendering
   ignored before) chooses the graphics backend; `off` renders on the CPU. The GPU now starts after the window
-  is up, and only when Settings ▸ Performance ▸ Use the GPU for rendering is on; if LightCraft ever dies while
+  is up, and only when Settings → Performance → Use the GPU for rendering is on; if LightCraft ever dies while
   starting the GPU, the next launch starts with GPU rendering off and says how to turn it back on.
 - The Windows app no longer quits at launch with "Parent device is lost" when another program's `dxcompiler.dll` is
   on the DLL search path without its `dxil.dll` (issue #471): DirectX 12 shaders now always compile with the
@@ -1450,7 +1450,7 @@
   name (never replacing a file), and only then is the photo relinked or the raw copy removed — a failed write
   leaves no DNG and keeps the raw. Smart previews are written the same way; a damaged one (cut short by a crash or
   a full drive) no longer counts as built and Build Smart Previews replaces it.
-- Import ▸ Copy verifies every copy, like Move (issue #96): each file is written as a new file, synced to disk and
+- Import → Copy verifies every copy, like Move (issue #96): each file is written as a new file, synced to disk and
   checked against the content read from the card. A copy that fails or differs is removed and reported as a failed
   import — so "import complete" means the copies are good before you format the card — and a name that is taken
   gets -1, -2… instead of being replaced.
@@ -1458,7 +1458,7 @@
   renders and screenshots are still written to a temp file and renamed into place, but no longer forced to disk
   one by one — they can always be exported again, and on a USB drive or a NAS that per-file sync dominated a large
   export. The catalog, XMP sidecars, settings, DNGs, merges, smart previews and the copies an import makes are still
-  synced. Import ▸ Copy now checks each copy against the content hash taken while scanning the card instead of
+  synced. Import → Copy now checks each copy against the content hash taken while scanning the card instead of
   reading the card a third time (Move still compares byte for byte before it deletes a source); a file that changed
   on the card after Review Import is reported instead of being imported with stale details. Checking an export path
   against the library's originals no longer scans the whole library when nothing is at that path.
@@ -1482,8 +1482,8 @@
   whether originals are there is checked on a worker thread (grid thumbnails, the Info panel, the photo menu, Missing
   Photos); importing (also by drag and drop), Find Missing Photos, Build / Discard Smart Previews, the Rename preview,
   the Local folder tree and Auto Import read the disk on worker threads too. The import progress window has Cancel.
-- Browser version (experimental), keeping a library safe (issue #107): File ▸ Back Up Library… downloads the catalog
-  and every imported photo as one zip, and File ▸ Restore Library from Backup… brings it back (the current library
+- Browser version (experimental), keeping a library safe (issue #107): File → Back Up Library… downloads the catalog
+  and every imported photo as one zip, and File → Restore Library from Backup… brings it back (the current library
   is kept). A failed save (storage full) now shows the unsaved warning and is retried, a photo that can't be stored
   isn't added, a second tab shows a message instead of overwriting the first, `?reset` asks first, and the page says
   when the browser may evict the library. Hosting: the sample cache headers no longer mark the (unhashed) files
@@ -1495,7 +1495,7 @@
   memory, exceeds the GPU's buffer limits, hits a driver error or reset, or comes back
   incomplete is redone on the CPU — the file is the same image either way. Work is sent to the GPU
   in short pieces so slow integrated GPUs aren't reset by their watchdog. `ui.inspect` → `perf`
-  (`gpuReason`, `gpuFallback`), Help ▸ System Info and Settings ▸ Performance say why the GPU isn't
+  (`gpuReason`, `gpuFallback`), Help → System Info and Settings → Performance say why the GPU isn't
   used (e.g. a skipped software adapter such as llvmpipe) and why the last render fell back.
 - The thumbnail cache only ever counts and deletes its own files (issue #98): a library opened on a folder that
   already has a `thumbs/` folder of other pictures no longer loses them when the cache is trimmed or cleared.
@@ -1523,14 +1523,14 @@
   favourites across restarts (issue #328).
 
 ### Library
-- Photos in Recently Deleted can be restored from the app: right-click ▸ Restore (or Delete Permanently), also in the
+- Photos in Recently Deleted can be restored from the app: right-click → Restore (or Delete Permanently), also in the
   Photo menu. The filmstrip has the photo context menu too. Adding a file again that is in Recently Deleted no
   longer just says "duplicate skipped": it opens the side panel on Recently Deleted with the photo selected and says
   how to restore it or delete it permanently and import it afresh. (For a fresh start on a photo, Reset Edits,
   Cmd+Shift+R, keeps the photo and clears its edits.)
 - Canon CR3 files show their full-size embedded JPEG (e.g. 6960 × 4640 on an EOS R6 Mark III) instead of the
   1620 × 1080 preview, and import with their metadata: capture time, camera, lens, exposure, GPS and XMP. Their raw
-  data is not decoded yet, so they stay preview-only. For CR3s imported earlier, Photo ▸ Reload from Disk (now in
+  data is not decoded yet, so they stay preview-only. For CR3s imported earlier, Photo → Reload from Disk (now in
   the Photo menu and the photo context menu) picks up the full-size preview and fills in the camera metadata they
   were missing, without touching anything already set.
 - Rename Photos never overwrites another photo when only the letter case changes (issue #95): on case-sensitive
@@ -1548,7 +1548,7 @@
 - Quick Collection and target album (B in the grid), keyword sets (⌥1–⌥9), colour-label sets.
 - Colour-label filter with several labels at once; expandable folder tree in Local.
 - Import: copy to any folder, by day / by month / one folder, rename on import, metadata preset, Copy as DNG.
-- Import ▸ Move: photos go into the destination (with the same folders and renaming as Copy, e.g.
+- Import → Move: photos go into the destination (with the same folders and renaming as Copy, e.g.
   `Photos/2026/20260114/20260114_001.jpg`) together with their XMP sidecars; each original leaves the card only after its
   copy is verified and in the library. Duplicates and files that fail stay where they were.
 - Watched-folder auto import; Convert to DNG; Duplicate; Build Standard / 1:1 / Smart Previews.

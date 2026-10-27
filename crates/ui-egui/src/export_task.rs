@@ -377,7 +377,7 @@ mod contact_sheet_tests {
         assert_eq!((rows[0].kind, rows[0].label.as_str(), rows[0].total), ("export", "Exporting contact sheet", 24));
         assert!(rows[0].cancellable);
         app.session.activity.cancel(rows[0].id).unwrap();
-        assert!(app.export.as_ref().unwrap().cancel.load(Ordering::Relaxed), "the stack's ✕ stops the sheet");
+        assert!(app.export.as_ref().unwrap().cancel.load(Ordering::Relaxed), "the stack's × stops the sheet");
         let task = app.export.take().unwrap();
         assert!(task.rx.recv_timeout(Duration::from_secs(20)).unwrap().is_err(), "a stopped sheet is not written");
         drop(task);

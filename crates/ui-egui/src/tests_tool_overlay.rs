@@ -174,7 +174,7 @@ fn view_menu_and_remove_panel_choose_the_tool_overlay() {
     let view = &bar.iter().find(|(t, _)| t == "View").unwrap().1;
     let Some(MenuNode::Submenu { children, .. }) = view.iter().find(|n| matches!(n, MenuNode::Submenu { label, .. } if label == "Tool Overlay"))
     else {
-        panic!("View ▸ Tool Overlay")
+        panic!("View → Tool Overlay")
     };
     let items: Vec<(String, serde_json::Value, Option<bool>, Option<String>)> = children
         .iter()

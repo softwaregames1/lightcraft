@@ -888,7 +888,7 @@ mod tests {
     /// script have no glyph for them and egui's bundled fonts do not either: the menu triangles,
     /// and the heavy multiplication X (U+2715) that Noto Sans Georgian lacks — `×` (U+00D7) reads
     /// the same and every face has it.
-    const UNPAINTABLE: [char; 3] = ['▸', '▾', '✕'];
+    const UNPAINTABLE: [char; 3] = ['\u{25B8}', '\u{25BE}', '\u{2715}'];
 
     #[test]
     fn translated_catalogs_do_not_use_missing_menu_triangles() {
@@ -902,6 +902,57 @@ mod tests {
             for (source, text) in messages {
                 for bad in UNPAINTABLE {
                     assert!(!text.contains(bad), "{}: {source:?} uses the unpaintable {bad:?}", path.display());
+                }
+            }
+        }
+    }
+
+    /// English text paints without craft-fonts too (a build without `CRAFT_FONTS_DIR`, where tests
+    /// panic on a missing glyph): every source string in the catalogs and every line of Help → What's
+    /// New uses only glyphs Inter and egui's bundled fonts have. A menu path is written `View → Sort`.
+    /// Language names are the exception: each is written in its own script.
+    #[test]
+    fn english_text_paints_without_craft_fonts() {
+        let ctx = egui::Context::default();
+        ctx.set_fonts(crate::theme::font_definitions(&[]));
+        let mut out = ctx.run_ui(egui::RawInput::default(), |_| {});
+        out.textures_delta.clear();
+        let mut english: Vec<String> = whats_new_lines().into_iter().map(str::to_string).collect();
+        let dir = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("locales");
+        for entry in std::fs::read_dir(dir).unwrap() {
+            let path = entry.unwrap().path();
+            if path.extension().is_some_and(|ext| ext == "json") {
+                let messages: BTreeMap<String, String> = serde_json::from_str(&std::fs::read_to_string(&path).unwrap()).unwrap();
+                english.extend(messages.into_keys().filter(|source| !Locale::ALL.iter().any(|language| language.name() == source)));
+            }
+        }
+        ctx.fonts_mut(|fonts| {
+            let font = egui::FontId::new(13.0, egui::FontFamily::Proportional);
+            for text in &english {
+                for c in text.chars().filter(|c| !c.is_control()) {
+                    assert!(fonts.has_glyph(&font, c), "{text:?}: no glyph for {c:?} (U+{:04X}) without craft-fonts", c as u32);
+                }
+            }
+        });
+    }
+
+    /// The UI crate's code (strings painted untranslated, like `format!` labels) carries none of
+    /// [`UNPAINTABLE`]; comments may, as the docs write menu paths with them.
+    #[test]
+    fn ui_code_does_not_use_unpaintable_symbols() {
+        let mut dirs = vec![std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("src")];
+        while let Some(dir) = dirs.pop() {
+            for entry in std::fs::read_dir(dir).unwrap() {
+                let path = entry.unwrap().path();
+                if path.is_dir() {
+                    dirs.push(path);
+                } else if path.extension().is_some_and(|ext| ext == "rs") {
+                    for (i, line) in std::fs::read_to_string(&path).unwrap().lines().enumerate() {
+                        let code = if line.trim_start().starts_with("//") { "" } else { line.split(" // ").next().unwrap_or(line) };
+                        for bad in UNPAINTABLE {
+                            assert!(!code.contains(bad), "{}:{}: uses the unpaintable {bad:?}", path.display(), i + 1);
+                        }
+                    }
                 }
             }
         }
@@ -1789,6 +1840,6 @@ mod picker_order_tests {
     fn language_menu_lists_the_picker_order() {
         let menu: Vec<&str> = crate::menus::LANGUAGE_COMMANDS.iter().map(|c| c.1).collect();
         let picker: Vec<&str> = Locale::for_picker().into_iter().map(Locale::name).collect();
-        assert_eq!(menu, picker, "Edit ▸ Language and the Settings row list the languages the same way");
+        assert_eq!(menu, picker, "Edit → Language and the Settings row list the languages the same way");
     }
 }

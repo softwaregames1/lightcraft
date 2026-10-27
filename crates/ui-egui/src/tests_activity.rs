@@ -471,7 +471,7 @@ fn find_missing_shows_an_indeterminate_row() {
     let rows = h.app.session.activity.list();
     assert_eq!(rows.len(), 1, "{rows:?}");
     assert_eq!((rows[0].kind, rows[0].label.as_str()), ("findMissing", "Find Missing Photos"));
-    assert_eq!((rows[0].total, rows[0].cancellable), (0, false), "indeterminate, no ✕");
+    assert_eq!((rows[0].total, rows[0].cancellable), (0, false), "indeterminate, no ×");
     assert!(h.step_until(T, |h| h.app.tasks.is_empty()));
     assert!(h.app.session.activity.list().is_empty(), "the row goes with the task");
     let _ = std::fs::remove_dir_all(dir);

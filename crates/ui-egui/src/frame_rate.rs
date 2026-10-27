@@ -245,7 +245,7 @@ mod tests {
         let app = LightcraftApp::new(lightcraft_engine::Session::with_demo(), Services { png: None, ..Default::default() });
         let mut h = Headless::new(app, [1200.0, 800.0], 1.0);
         let was = h.app.ui.frame_rate;
-        assert_eq!(debug_item(&h.app), Some(Some(was)), "Help ▸ Debug lists it, checked as it is");
+        assert_eq!(debug_item(&h.app), Some(Some(was)), "Help → Debug lists it, checked as it is");
         assert_eq!(set(&mut h, json!({})), Some(!was));
         assert_eq!(debug_item(&h.app), Some(Some(!was)));
         // frames with the display on draw (and keep the window repainting)

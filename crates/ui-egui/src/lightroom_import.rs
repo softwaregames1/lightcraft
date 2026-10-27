@@ -605,7 +605,7 @@ mod tests {
         h.step();
         let id = h.app.session.activity.list()[0].id;
         h.app.session.activity.cancel(id).unwrap();
-        assert!(cancel.load(Ordering::Relaxed), "the worker sees the stack's ✕");
+        assert!(cancel.load(Ordering::Relaxed), "the worker sees the stack's ×");
         tx.send(Message::Prepared(Err("cancelled".into()))).unwrap();
         h.step();
         assert!(h.app.lightroom.is_none());

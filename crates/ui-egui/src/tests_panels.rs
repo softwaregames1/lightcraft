@@ -302,7 +302,7 @@ fn sidebar_menu_items(h: &Headless) -> Vec<(String, Option<bool>)> {
             MenuNode::Submenu { label, children } if label == "Sidebar Sections" => Some(children.clone()),
             _ => None,
         })
-        .expect("View ▸ Sidebar Sections");
+        .expect("View → Sidebar Sections");
     children
         .iter()
         .filter_map(|n| match n {
